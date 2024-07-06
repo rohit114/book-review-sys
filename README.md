@@ -22,52 +22,33 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+### Introduction
+* The Book Review System API allows users to add books, create, edit, and delete review. Users can sign up for an account, log in to obtain an access token, and use this token to authenticate their requests. Unauthorized access attempts will result in a 403 Forbidden response.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+* To access protected endpoints, users must include their access token in the request headers under the Authorization field. Without a valid access token, users will not be able to perform actions on the system.
 
-## Installation
+* This system has GraphQL based queries where a user can get his written reviews, others reviews,
+add books, search books by author and title
 
-```bash
+* The API returns standard HTTP status codes to indicate the success or failure of requests. Error responses include detailed messages to assist developers in troubleshooting issues.
+
+### Tech stck used:
+* NodeJs V16.0.0+
+* TypeScript V5.4.5+
+* NestJs V10.3.2+
+* PostgreSQL V14.1.0+
+* Prisma V5.16.1
+* Apollo 12.2.0
+
+### Setting up project:
+$ clone the repo: https://github.com/rohit114/book-review-sys.git
+$ cd book-review-sys
 $ npm install
-```
+$ add these variable in .env file JWT_SECRET_KEY = "xxxxxxDATABASE_URL = "postgresql://postgres@localhost:5432/book_review"
+$ prisma migrate dev --name init
+$ npm start
 
-## Running the app
-
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
-```
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
 
 ## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+- email me at rohitkumardas114@gmail.com for support or reporting any issues
+- Linkedin - [Rohit Kumar](https://www.linkedin.com/in/rohit-kumar-das/)
