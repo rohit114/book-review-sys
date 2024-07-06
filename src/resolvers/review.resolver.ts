@@ -1,6 +1,5 @@
 import { Resolver, Query, Args, Int } from '@nestjs/graphql';
 import { Review } from '@prisma/client';
-import { off } from 'process';
 import { ReviewService } from 'src/service/review.service';
 
 @Resolver('Review')
