@@ -7,6 +7,8 @@ import { ApolloDriverConfig, ApolloDriver } from '@nestjs/apollo';
 import { GraphQLModule } from '@nestjs/graphql';
 import { TestResolver } from './resolvers/test-resolver';
 import { PrismaService } from './service/prisma.service';
+import { AuthController } from './controller/AuthController';
+import { AuthService } from './service/auth.service';
 
 @Module({
   imports: [
@@ -20,7 +22,7 @@ import { PrismaService } from './service/prisma.service';
       playground: true, //turn on/off
     }),
   ],
-  controllers: [AppController],
-  providers: [AppService, AuthGuard, TestResolver, PrismaService],
+  controllers: [AppController, AuthController],
+  providers: [AppService, AuthGuard, TestResolver, PrismaService, AuthService],
 })
-export class AppModule {}
+export class AppModule { }

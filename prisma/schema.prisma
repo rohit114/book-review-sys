@@ -15,12 +15,13 @@ datasource db {
 
 model User {
   id    Int     @default(autoincrement()) @id
-  username  String
+  name String
+  username  String @unique
   email String  @unique
   password String
-  access_token String
-  createdAt DateTime
-  updatedAt DateTime
+  accessToken String @default("null")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
   books       Book[]   @relation("BookAuthor")
   reviews     Review[] @relation("UserReviews")
 }
@@ -31,8 +32,8 @@ model Book {
   author    User    @relation(fields: [authorId], references: [id], name: "BookAuthor")
   authorId  Int
   publishedYear DateTime
-  createdAt DateTime
-  updatedAt DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
   reviews       Review[] @relation("BookReviews")
 }
 
@@ -44,8 +45,8 @@ model Review {
   bookId  Int
   rating  Int
   comment String
-  createdAt DateTime
-  updatedAt DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 //prisma migrate dev --name init
