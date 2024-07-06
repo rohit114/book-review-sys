@@ -1,10 +1,8 @@
-// src/common/filters/http-exception.filter.ts
-
 import { ExceptionFilter, Catch, ArgumentsHost, HttpException, HttpStatus, NotFoundException, UnauthorizedException } from '@nestjs/common';
-import { ValidationError, isInstance } from 'class-validator';
+import { ValidationError } from 'class-validator';
 
 @Catch()
-export class AllExceptionsFilter implements ExceptionFilter {
+export class GlobalExceptionsFilter implements ExceptionFilter {
   catch(exception: unknown, host: ArgumentsHost) {
     const ctx = host.switchToHttp();
     const response = ctx.getResponse();
@@ -34,8 +32,6 @@ export class AllExceptionsFilter implements ExceptionFilter {
       message = exception.getResponse();
 
     }
-
-
 
     response.status(status).json({
       statusCode: status,

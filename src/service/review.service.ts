@@ -1,8 +1,9 @@
-import { Injectable, NotFoundException, UnauthorizedException, ForbiddenException } from '@nestjs/common';
+import { Injectable, NotFoundException, ForbiddenException } from '@nestjs/common';
 import { getLoggingUtil } from 'src/utils/logging.util';
 import { PrismaService } from './prisma.service';
 import { ReviewDTO, UpdateReviewDTO } from 'src/dto/requests/ReviewDTO';
 import { ReviewResponseDTO } from 'src/dto/responses/ReviewResponseDTO';
+import { Review } from '@prisma/client';
 const logger = getLoggingUtil('ReviewService');
 
 
@@ -45,8 +46,6 @@ export class ReviewService {
                     id: payload.reviewId
                 },
             })
-            console.log("userId", userId)
-            console.log(review)
             if (!review) {
                 throw new NotFoundException(`Review with id: ${payload.reviewId} not found`)
             }
@@ -66,7 +65,7 @@ export class ReviewService {
             return updatedReview;
 
         } catch (error) {
-            console.error("Err update review", error.message)
+            logger.error("ERROR::UPDATE::REVIEW", { message: error.message })
             throw error
         }
 
@@ -98,10 +97,49 @@ export class ReviewService {
             return true;
 
         } catch (error) {
-            console.error("Err delete review", error.message)
+            logger.error("ERROR::DELETE::REVIEW", { message: error.message })
             throw error
         }
 
+    }
+
+    async getReviews(offset: number, limit: number): Promise<Review[]> {
+        try {
+            logger.info("GET::REVIEWS", {})
+            return this.prisma.review.findMany({
+                include: {
+                    user: true,
+                    book: true,
+                },
+                take: limit,
+                skip: offset,
+            });
+
+        } catch (error) {
+            logger.error("ERROR::GET::REVIEWS", { message: error.message })
+            throw error
+        }
+
+    }
+
+    async getMyReviews(userId: number, offset: number, limit: number): Promise<Review[]> {
+        try {
+             //todo: fix
+            const reviews =  await this.prisma.review.findMany({
+                where: { userId: userId },
+                include: {
+                    user: true,
+                    book: true,
+                },
+            });
+            console.log("=======> reviews", JSON.stringify(reviews))
+            return reviews;
+
+        } catch (error) {
+            logger.error("ERROR::GET::REVIEW::BY_ID", { message: error.message })
+            throw error
+
+        }
 
     }
 
