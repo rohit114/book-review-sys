@@ -5,7 +5,6 @@ import { JwtModule } from '@nestjs/jwt';
 import { AuthGuard } from './service/AuthGuard';
 import { ApolloDriverConfig, ApolloDriver } from '@nestjs/apollo';
 import { GraphQLModule } from '@nestjs/graphql';
-import { TestResolver } from './resolvers/test-resolver';
 import { PrismaService } from './service/prisma.service';
 import { AuthController } from './controller/AuthController';
 import { AuthService } from './service/auth.service';
@@ -13,6 +12,9 @@ import { BookController } from './controller/BookController';
 import { BookService } from './service/book.service';
 import { ReviewController } from './controller/ReviewController';
 import { ReviewService } from './service/review.service';
+import { ReviewResolver } from './resolvers/review.resolver';
+import { BookResolver } from './resolvers/book.resolver';
+import { join } from 'path';
 
 @Module({
   imports: [
@@ -22,11 +24,17 @@ import { ReviewService } from './service/review.service';
     }),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
-      autoSchemaFile: true,
-      playground: true, //turn on/off
+      playground: true,
+      typePaths: ['./**/*.graphql'],
+      definitions: {
+        path: join(process.cwd(), 'src/graphql.ts'),
+        outputAs: 'class',
+      },
     }),
   ],
+
   controllers: [AppController, AuthController, BookController, ReviewController],
-  providers: [AppService, AuthGuard, TestResolver, PrismaService, AuthService, BookService, ReviewService],
+  providers: [AppService, AuthGuard, PrismaService, AuthService,
+     BookService, ReviewService, BookResolver, ReviewResolver],
 })
 export class AppModule { }
