@@ -1,0 +1,166 @@
+{
+	"info": {
+		"_postman_id": "1e4fe6a1-b2b1-4be9-8283-f66a13c3a3b4",
+		"name": "book-review-sys",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "4345306"
+	},
+	"item": [
+		{
+			"name": "/apis/book-review-sys/v1/user/register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Rohit\",\n    \"username\": \"rohit115\",\n    \"email\": \"rohitkumardas115@gmail.com\",\n    \"password\": \"ur_password\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:3000/apis/book-review-sys/v1/user/register"
+			},
+			"response": []
+		},
+		{
+			"name": "/apis/book-review-sys/v1/user/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"rohitkumardas114@gmail.com\",\n    \"password\": \"rohit114\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:3000/apis/book-review-sys/v1/user/login"
+			},
+			"response": []
+		},
+		{
+			"name": "/apis/book-review-sys/v1/book/add",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI0LCJlbWFpbCI6InJvaGl0a3VtYXJkYXMxMTRAZ21haWwuY29tIiwiaWF0IjoxNzIwMjcxOTA5LCJleHAiOjE3MjAzNTgzMDl9.AoB7qfYLnbYsmqrzDCkYxcgDWnU7WqkngyWhNK3DOEA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Atomic Habits\",\n    \"author_id\": 1,\n    \"published_year\": \"2018-10-16\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:3000/apis/book-review-sys/v1/book/add"
+			},
+			"response": []
+		},
+		{
+			"name": "/apis/book-review-sys/v1/review/update",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI0LCJlbWFpbCI6InJvaGl0a3VtYXJkYXMxMTRAZ21haWwuY29tIiwiaWF0IjoxNzIwMjcxOTA5LCJleHAiOjE3MjAzNTgzMDl9.AoB7qfYLnbYsmqrzDCkYxcgDWnU7WqkngyWhNK3DOEA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"review_id\": 1,\n    \"rating\": 9,\n    \"comment\":  \"awesome book wow\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:3000/apis/book-review-sys/v1/review/update"
+			},
+			"response": []
+		},
+		{
+			"name": "/apis/book-review-sys/v1/review/add",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI0LCJlbWFpbCI6InJvaGl0a3VtYXJkYXMxMTRAZ21haWwuY29tIiwiaWF0IjoxNzIwMjcxOTA5LCJleHAiOjE3MjAzNTgzMDl9.AoB7qfYLnbYsmqrzDCkYxcgDWnU7WqkngyWhNK3DOEA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"book_id\": 1,\n    \"rating\": 10,\n    \"comment\":  \"awesome book\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:3000/apis/book-review-sys/v1/review/add"
+			},
+			"response": []
+		},
+		{
+			"name": "/apis/book-review-sys/v1/review/delete/5",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI0LCJlbWFpbCI6InJvaGl0a3VtYXJkYXMxMTRAZ21haWwuY29tIiwiaWF0IjoxNzIwMjcxOTA5LCJleHAiOjE3MjAzNTgzMDl9.AoB7qfYLnbYsmqrzDCkYxcgDWnU7WqkngyWhNK3DOEA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"review_id\": 4,\n    \"rating\": 9,\n    \"comment\":  \"awesome book wow\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:3000/apis/book-review-sys/v1/review/delete/6"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/graphql",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI0LCJlbWFpbCI6InJvaGl0a3VtYXJkYXMxMTRAZ21haWwuY29tIiwiaWF0IjoxNzIwMjcxOTA5LCJleHAiOjE3MjAzNTgzMDl9.AoB7qfYLnbYsmqrzDCkYxcgDWnU7WqkngyWhNK3DOEA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"query\": \"{ getReviews(offset: 0, limit: 10) { id rating, comment book {id, title, publishedYear } user {id, username}  } }\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:3000/graphql"
+			},
+			"response": []
+		}
+	]
+}
