@@ -1,28 +1,12 @@
 import { Expose } from 'class-transformer';
 import { IsEmail, IsNotEmpty, IsString } from 'class-validator';
+import { UserRegisterDTO } from '../requests/UserRegisterDTO';
 
-export class UserRegisterResponseDTO {
-
+export class UserRegisterResponseDTO  extends UserRegisterDTO{
     @Expose({ name: 'id' })
     @IsNotEmpty()
     @IsString()
     id: number;
-
-    @Expose({ name: 'name' })
-    @IsNotEmpty()
-    @IsString()
-    name: string;
-
-    @Expose({ name: 'username' })
-    @IsNotEmpty()
-    @IsString()
-    username: string;
-
-    @Expose({ name: 'email' })
-    @IsNotEmpty()
-    @IsString()
-    @IsEmail()
-    email: string;
 
     @Expose({ name: 'created_at' })
     createdAt: Date;
@@ -31,3 +15,4 @@ export class UserRegisterResponseDTO {
     updatedAt: Date;
 
 }
+

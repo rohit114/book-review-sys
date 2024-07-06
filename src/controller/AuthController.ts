@@ -28,7 +28,6 @@ export class AuthController extends BaseController {
             enableImplicitConversion: true,
         });
         await validateOrReject(dto);
-
         const user = await this.authService.registerUser(dto);
         return res
             .status(HttpStatus.CREATED)
@@ -46,6 +45,7 @@ export class AuthController extends BaseController {
         const dto = plainToInstance(UserLoginDTO, payload, {
             enableImplicitConversion: true,
         });
+        await validateOrReject(dto);
         let response = await this.authService.login(dto);
 
         return res

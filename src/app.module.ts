@@ -9,6 +9,10 @@ import { TestResolver } from './resolvers/test-resolver';
 import { PrismaService } from './service/prisma.service';
 import { AuthController } from './controller/AuthController';
 import { AuthService } from './service/auth.service';
+import { BookController } from './controller/BookController';
+import { BookService } from './service/book.service';
+import { ReviewController } from './controller/ReviewController';
+import { ReviewService } from './service/review.service';
 
 @Module({
   imports: [
@@ -22,7 +26,7 @@ import { AuthService } from './service/auth.service';
       playground: true, //turn on/off
     }),
   ],
-  controllers: [AppController, AuthController],
-  providers: [AppService, AuthGuard, TestResolver, PrismaService, AuthService],
+  controllers: [AppController, AuthController, BookController, ReviewController],
+  providers: [AppService, AuthGuard, TestResolver, PrismaService, AuthService, BookService, ReviewService],
 })
 export class AppModule { }

@@ -33,6 +33,7 @@ export class AuthService {
             logger.info('REGISTER::USER::SUCCESS', {});
             return response;
         } catch (error) {
+            console.error("Err user register ", error.message)
             if (error instanceof PrismaClientKnownRequestError) {
                 if (error.code === 'P2002') {
                     // Unique constraint violation
@@ -50,6 +51,7 @@ export class AuthService {
     }
 
     private async buildUserRegisterResponse(data: any): Promise<UserRegisterResponseDTO> {
+        logger.info('REGISTER::USER::BUILD::RESPONSE::START', {});
         let user = new UserRegisterResponseDTO()
         user.id = data.id;
         user.name = data.name;
@@ -57,12 +59,13 @@ export class AuthService {
         user.email = data.email;
         user.createdAt = data.createdAt;
         user.updatedAt = data.updatedAt;
+        logger.info('REGISTER::USER::BUILD::RESPONSE::SUCCESS', {});
         return user;
     }
 
     public async login(payload: UserLoginDTO) {
         try {
-
+            logger.info('LOGIN::USER::START', {});
             let user = await this.prisma.user.findUnique({
                 where: {
                     email: payload.email,
@@ -75,9 +78,7 @@ export class AuthService {
 
             const userData = { userId: user.id, email: user.email };
             const accessToken = this.jwtService.sign(userData, { expiresIn: '24h' });
-            console.log("--------> accessToken", accessToken)
-
-            const updateUser = await this.prisma.user.update({
+            await this.prisma.user.update({
                 where: {
                     email: payload.email,
                 },
@@ -85,24 +86,21 @@ export class AuthService {
                     accessToken: accessToken,
                 },
             }) // Saving the access token to the user table
-
+            logger.info('LOGIN::USER::SUCCESS', {});
             return {
                 access_token: accessToken,
             };
         } catch (error) {
-            console.error("user login Err", error)
-            if (error instanceof UnauthorizedException) {
-                throw new UnauthorizedException('Invalid credentials');
-            }
-            throw new BadRequestException('User login failed')
+            console.error("Err user login ", error.message)
+            throw error
         }
 
     }
 
     private async validateUser(payload: UserLoginDTO, user: any): Promise<any> {
-        console.log("------> hello 1")
+        logger.info('LOGIN::USER::VALIDATE::START', {});
         if (await bcrypt.compare(payload.password, user.password)) {
-            console.log("------> hello 2")
+            logger.info('LOGIN::USER::VALIDATE::SUCCESS', {});
             return true;
         }
         throw new UnauthorizedException('Invalid credentials');
