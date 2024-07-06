@@ -97,27 +97,27 @@ add books, search books by author and title
     * HEADER: Authorization
     * URL: `{{BASE_URL}}/graphql`
     * BODY: `ur query`
-      # Get all books with pagination:
+      ### Get all books with pagination:
       ```
       { "query": "{ getBooks(offset: 3, limit: 8) { id title author { id username } publishedYear } }"}
       ```
 
-      # Get book by id
+      ### Get book by id
       ```
         "query": "{ getBookById(id: 1) { id title author { id username } publishedYear } }"
       ```
 
-      # Search book
+      ### Search book
       ```
         { "query": "{searchBooks(searchTerm: nodejs) {id title author { id username } publishedYear}}" }
       ```
 
-       # Get all reviews with pagination:
+      ### Get all reviews with pagination:
       ```
         "query": "{ getReviews(offset: 0, limit: 10) { id rating, comment book {id, title, publishedYear } user {id, username}  } }"
       ```
 
-       # Get my reviews:
+      ### Get my reviews:
       ```
         "query": "{ getMyReviews(userId: 24, offset: 0, limit: 10) { id rating, comment book {id, title, publishedYear } user {id, username}  } }"
       ```
