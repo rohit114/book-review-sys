@@ -49,7 +49,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI0LCJlbWFpbCI6InJvaGl0a3VtYXJkYXMxMTRAZ21haWwuY29tIiwiaWF0IjoxNzIwMjcxOTA5LCJleHAiOjE3MjAzNTgzMDl9.AoB7qfYLnbYsmqrzDCkYxcgDWnU7WqkngyWhNK3DOEA",
+						"value": "Bearer xxx.xxxxx.xxxxx",
 						"type": "text"
 					}
 				],
@@ -73,7 +73,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI0LCJlbWFpbCI6InJvaGl0a3VtYXJkYXMxMTRAZ21haWwuY29tIiwiaWF0IjoxNzIwMjcxOTA5LCJleHAiOjE3MjAzNTgzMDl9.AoB7qfYLnbYsmqrzDCkYxcgDWnU7WqkngyWhNK3DOEA",
+						"value": "Bearer xx.xxx.xxx",
 						"type": "text"
 					}
 				],
@@ -97,7 +97,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI0LCJlbWFpbCI6InJvaGl0a3VtYXJkYXMxMTRAZ21haWwuY29tIiwiaWF0IjoxNzIwMjcxOTA5LCJleHAiOjE3MjAzNTgzMDl9.AoB7qfYLnbYsmqrzDCkYxcgDWnU7WqkngyWhNK3DOEA",
+						"value": "Bearer xxx.xxx.xxx",
 						"type": "text"
 					}
 				],
@@ -121,7 +121,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI0LCJlbWFpbCI6InJvaGl0a3VtYXJkYXMxMTRAZ21haWwuY29tIiwiaWF0IjoxNzIwMjcxOTA5LCJleHAiOjE3MjAzNTgzMDl9.AoB7qfYLnbYsmqrzDCkYxcgDWnU7WqkngyWhNK3DOEA",
+						"value": "Bearer xxxx.xxx.xxxx",
 						"type": "text"
 					}
 				],
@@ -145,7 +145,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI0LCJlbWFpbCI6InJvaGl0a3VtYXJkYXMxMTRAZ21haWwuY29tIiwiaWF0IjoxNzIwMjcxOTA5LCJleHAiOjE3MjAzNTgzMDl9.AoB7qfYLnbYsmqrzDCkYxcgDWnU7WqkngyWhNK3DOEA",
+						"value": "Bearer xxxx.xxx.xxx",
 						"type": "text"
 					}
 				],
