@@ -1,0 +1,36 @@
+type Query {
+  getBooks(offset: Int!, limit: Int!): [Book!]!
+  searchBooks(searchTerm: String!): [Book!]!
+  getBookById(id: Int!): Book
+  getReviews(offset: Int!, limit: Int!): [Review!]!
+  getMyReviews(userId: Int!, offset: Int!, limit: Int!): Review
+}
+
+type Book {
+  id: Int!
+  title: String!
+  author: User!
+  authorId: Int!
+  publishedYear: String!
+  createdAt: String
+  updatedAt: String
+  reviews: [Review!]!
+}
+
+type Review {
+  id: Int!
+  user: User!
+  userId: Int!
+  book: Book!
+  bookId: Int!
+  rating: Int!
+  comment: String!
+  createdAt: String
+  updatedAt: String
+}
+
+type User {
+  id: Int!
+  username: String!
+  email: String!
+}
