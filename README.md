@@ -30,7 +30,7 @@
 * This system has GraphQL based queries where a user can get his written reviews, others reviews,
 add books, search books by author and title
 
-* The API returns standard HTTP status codes to indicate the success or failure of requests. Error responses include detailed messages to assist developers in troubleshooting issues.
+* The API returns standard HTTP status codes to indicate the success or failure of requests. Error responses include detailed messages to assist developers in troubleshooting issues.APIs will throw bad request upon faling any input validations
 
 ### Tech stack used:
 * NodeJs V16.0.0+
