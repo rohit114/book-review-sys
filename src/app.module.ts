@@ -15,6 +15,7 @@ import { ReviewService } from './service/review.service';
 import { ReviewResolver } from './resolvers/review.resolver';
 import { BookResolver } from './resolvers/book.resolver';
 import { join } from 'path';
+import { JwtUtil } from './utils/token-verify';
 
 @Module({
   imports: [
@@ -35,6 +36,7 @@ import { join } from 'path';
 
   controllers: [AppController, AuthController, BookController, ReviewController],
   providers: [AppService, AuthGuard, PrismaService, AuthService,
-     BookService, ReviewService, BookResolver, ReviewResolver],
+    BookService, ReviewService, BookResolver, ReviewResolver, JwtUtil],
+  exports: [JwtUtil]
 })
 export class AppModule { }

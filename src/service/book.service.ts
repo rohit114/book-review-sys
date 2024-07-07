@@ -11,7 +11,7 @@ const logger = getLoggingUtil('BookService');
 export class BookService {
 
     constructor(
-        private prisma: PrismaService
+        private readonly prisma: PrismaService
     ) { }
 
     async addBook(payload: BookDTO): Promise<BookResponseDTO> {
@@ -58,7 +58,6 @@ export class BookService {
     }
 
     async searchBooks(searchTerm: string): Promise<Book[] | null> {
-        //todo: fix
         try {
             logger.info("SEARCH::BOOKS", {searchTerm: searchTerm})
             const books = await this.prisma.book.findMany({
@@ -69,7 +68,6 @@ export class BookService {
                     ],
                 },
             });
-            console.log("======> books", books)
             return  (books.length>0)?books:[];
         } catch (error) {
             logger.error("SEARCH::BOOKS::FAIL", {message: error.message})

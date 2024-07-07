@@ -109,7 +109,7 @@ add books, search books by author and title
 
       ### Search book
       ```
-        { "query": "{searchBooks(searchTerm: nodejs) {id title author { id username } publishedYear}}" }
+        { "query": "{searchBooks(searchTerm: \"nodejs\") {id title author { id username } publishedYear}}" }
       ```
 
       ### Get all reviews with pagination:

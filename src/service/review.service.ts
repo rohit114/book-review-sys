@@ -11,7 +11,7 @@ const logger = getLoggingUtil('ReviewService');
 export class ReviewService {
 
     constructor(
-        private prisma: PrismaService
+        private readonly prisma: PrismaService
     ) { }
 
     async addReview(userId: number, payload: ReviewDTO): Promise<ReviewResponseDTO> {
@@ -105,7 +105,7 @@ export class ReviewService {
 
     async getReviews(offset: number, limit: number): Promise<Review[]> {
         try {
-            logger.info("GET::REVIEWS", {})
+            logger.info("GET::REVIEWS", {offset: offset, limit: limit})
             return this.prisma.review.findMany({
                 include: {
                     user: true,
@@ -124,7 +124,6 @@ export class ReviewService {
 
     async getMyReviews(userId: number, offset: number, limit: number): Promise<Review[]> {
         try {
-             //todo: fix
             const reviews =  await this.prisma.review.findMany({
                 where: { userId: userId },
                 include: {
@@ -132,7 +131,6 @@ export class ReviewService {
                     book: true,
                 },
             });
-            console.log("=======> reviews", JSON.stringify(reviews))
             return reviews;
 
         } catch (error) {

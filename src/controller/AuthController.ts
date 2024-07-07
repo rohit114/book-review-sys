@@ -1,4 +1,4 @@
-import { Controller, Post, Req, Body, Res, HttpStatus } from "@nestjs/common";
+import { Controller, Post, Req, Body, Res, HttpStatus, UseGuards } from "@nestjs/common";
 import { BaseController } from "./BaseController";
 import { Request, Response } from 'express';
 import { plainToInstance } from "class-transformer";
@@ -6,6 +6,7 @@ import { UserRegisterDTO } from "src/dto/requests/UserRegisterDTO";
 import { UserLoginDTO } from "src/dto/requests/UserLoginDTO";
 import { AuthService } from "src/service/auth.service";
 import { validateOrReject } from "class-validator";
+import { AuthGuard } from "src/service/AuthGuard";
 
 
 @Controller('/v1/user')
@@ -18,7 +19,7 @@ export class AuthController extends BaseController {
     }
 
     @Post('register')
-    async create(
+    async register(
         @Req() req: Request,
         @Body() payload: Object,
         @Res() res: Response,

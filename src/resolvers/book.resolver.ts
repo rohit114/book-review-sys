@@ -4,25 +4,22 @@ import { BookService } from 'src/service/book.service';
 
 @Resolver('Book')
 export class BookResolver {
-  constructor(private readonly bookService: BookService) {}
+  constructor(private readonly bookService: BookService) { }
 
   @Query('getBooks')
   async getBooks(
-  @Args('offset', { type: () => Int, nullable: true }) offset?: number,
-  @Args('limit', { type: () => Int, nullable: true }) limit?: number,): Promise<Book[]> {
-    offset = (offset)?offset:0
-    limit = (offset)?limit:10
+    @Args('offset', { type: () => Int, nullable: true }) offset?: number,
+    @Args('limit', { type: () => Int, nullable: true }) limit?: number,): Promise<Book[]> {
+    offset = (offset) ? offset : 0
+    limit = (limit) ? limit : 10
     return this.bookService.getBooks(offset, limit);
   }
 
   @Query('searchBooks')
-  async searchBooks(
-    @Args('searchTerm') searchTerm: string
-  ): Promise<Book[]> {
-    //todo: fix
+  async searchBooks(@Args('searchTerm') searchTerm: string): Promise<Book[]> {
     return this.bookService.searchBooks(searchTerm);
   }
-  
+
 
   @Query('getBookById')
   async getBookById(@Args('id') id: number): Promise<Book> {

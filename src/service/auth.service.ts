@@ -12,7 +12,7 @@ const logger = getLoggingUtil('AuthService');
 @Injectable()
 export class AuthService {
     constructor(private readonly jwtService: JwtService,
-        private prisma: PrismaService
+        private readonly prisma: PrismaService
     ) { }
 
     async registerUser(payload: UserRegisterDTO): Promise<any | null> {
