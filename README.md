@@ -32,7 +32,7 @@ add books, search books by author and title
 
 * The API returns standard HTTP status codes to indicate the success or failure of requests. Error responses include detailed messages to assist developers in troubleshooting issues.
 
-### Tech stck used:
+### Tech stack used:
 * NodeJs V16.0.0+
 * TypeScript V5.4.5+
 * NestJs V10.3.2+
