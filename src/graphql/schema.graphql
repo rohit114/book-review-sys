@@ -9,7 +9,7 @@ type Query {
 type Book {
   id: Int!
   title: String!
-  author: User!
+  author: User
   authorId: Int!
   publishedYear: String!
   createdAt: String

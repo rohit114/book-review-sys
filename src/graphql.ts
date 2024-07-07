@@ -23,7 +23,7 @@ export abstract class IQuery {
 export class Book {
     id: number;
     title: string;
-    author: User;
+    author?: Nullable<User>;
     authorId: number;
     publishedYear: string;
     createdAt?: Nullable<string>;
